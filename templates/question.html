@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Investigation | Case Solver</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0d10;
+            color: white;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 60px;
+
+            border-bottom: 1px solid #25282d;
+        }
+
+        .logo {
+            color: #e3ad4f;
+
+            font-size: 24px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+        .player {
+            color: #aaa;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .container {
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 55px 30px;
+        }
+
+
+        /* =========================
+           TOP INFORMATION
+        ========================= */
+
+        .top {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+        }
+
+        .case-name {
+            color: #e3ad4f;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            font-weight: bold;
+
+            max-width: 60%;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+        .question-count {
+            color: #777;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           PROGRESS BAR
+        ========================= */
+
+        .progress-container {
+            width: 100%;
+
+            height: 4px;
+
+            background: #20252b;
+
+            border-radius: 10px;
+
+            margin-bottom: 35px;
+
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+
+            background: #e3ad4f;
+
+            border-radius: 10px;
+
+            width: calc(
+                ({{ question_number }} / {{ total_questions }}) * 100%
+            );
+        }
+
+
+        /* =========================
+           QUESTION CARD
+        ========================= */
+
+        .question-card {
+            background: #12151a;
+
+            border: 1px solid #292d33;
+
+            border-radius: 12px;
+
+            padding: 40px;
+        }
+
+
+        /* =========================
+           QUESTION LABEL
+        ========================= */
+
+        .question-label {
+            color: #e3ad4f;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           QUESTION
+        ========================= */
+
+        h1 {
+            font-size: 27px;
+
+            line-height: 1.5;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           OPTIONS
+        ========================= */
+
+        .options {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        .option {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            background: #181c21;
+
+            border: 1px solid #292d33;
+
+            padding: 17px 18px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .option:hover {
+            border-color: #e3ad4f;
+
+            background: #1c2025;
+        }
+
+
+        /* Hide original radio */
+
+        .option input {
+            display: none;
+        }
+
+
+        /* Letter */
+
+        .option-letter {
+            width: 32px;
+
+            height: 32px;
+
+            min-width: 32px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: 1px solid #444;
+
+            border-radius: 6px;
+
+            color: #aaa;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+
+        /* Selected option */
+
+        .option:has(input:checked) {
+            border-color: #e3ad4f;
+
+            background: #211d14;
+        }
+
+        .option:has(input:checked) .option-letter {
+            background: #e3ad4f;
+
+            border-color: #e3ad4f;
+
+            color: #0b0d10;
+        }
+
+
+        .option-text {
+            color: #ddd;
+
+            font-size: 15px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .next-button {
+            width: 100%;
+
+            padding: 16px;
+
+            margin-top: 28px;
+
+            background: #e3ad4f;
+
+            color: #0b0d10;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .next-button:hover {
+            background: #f0c46b;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================
+           FOOTER HINT
+        ========================= */
+
+        .hint {
+            text-align: center;
+
+            color: #555;
+
+            font-size: 11px;
+
+            margin-top: 20px;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 0 25px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .question-card {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .top {
+                gap: 15px;
+            }
+
+            .case-name {
+                max-width: 55%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            CASE&lt;SOLVER&gt;
+        </div>
+
+        <div class="player">
+
+            {{ request.session.character }}
+
+            {{ request.session.player_name }}
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <div class="container">
+
+
+        <!-- TOP INFORMATION -->
+
+        <div class="top">
+
+            <div class="case-name">
+
+                CASE — {{ case.title }}
+
+            </div>
+
+            <div class="question-count">
+
+                QUESTION {{ question_number }} / {{ total_questions }}
+
+            </div>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-container">
+
+            <div class="progress"></div>
+
+        </div>
+
+
+        <!-- QUESTION CARD -->
+
+        <div class="question-card">
+
+
+            <div class="question-label">
+
+                INVESTIGATION
+
+            </div>
+
+
+            <h1>
+
+                {{ question.question_text }}
+
+            </h1>
+
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+
+                <div class="options">
+
+
+                    <!-- OPTION A -->
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="answer"
+                            value="A"
+                            required
+                        >
+
+                        <span class="option-letter">
+                            A
+                        </span>
+
+                        <span class="option-text">
+                            {{ question.option_a }}
+                        </span>
+
+                    </label>
+
+
+                    <!-- OPTION B -->
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="answer"
+                            value="B"
+                        >
+
+                        <span class="option-letter">
+                            B
+                        </span>
+
+                        <span class="option-text">
+                            {{ question.option_b }}
+                        </span>
+
+                    </label>
+
+
+                    <!-- OPTION C -->
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="answer"
+                            value="C"
+                        >
+
+                        <span class="option-letter">
+                            C
+                        </span>
+
+                        <span class="option-text">
+                            {{ question.option_c }}
+                        </span>
+
+                    </label>
+
+
+                    <!-- OPTION D -->
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="answer"
+                            value="D"
+                        >
+
+                        <span class="option-letter">
+                            D
+                        </span>
+
+                        <span class="option-text">
+                            {{ question.option_d }}
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="next-button"
+                >
+
+                    {% if question_number == total_questions %}
+
+                        FINISH INVESTIGATION →
+
+                    {% else %}
+
+                        SUBMIT ANSWER →
+
+                    {% endif %}
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+        <div class="hint">
+
+            Examine every detail carefully. Your decision affects your final score.
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

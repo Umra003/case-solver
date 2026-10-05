@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Case Solver - Mysteries</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0d10;
+            color: white;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 60px;
+
+            border-bottom: 1px solid #25282d;
+        }
+
+        .logo {
+            color: #e3ad4f;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .player {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .container {
+            max-width: 1050px;
+            margin: auto;
+
+            padding: 65px 30px;
+        }
+
+
+        /* =========================
+           PAGE HEADER
+        ========================= */
+
+        .case-label {
+            color: #e3ad4f;
+
+            font-size: 12px;
+            letter-spacing: 4px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        .page-title {
+            font-size: 46px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #888;
+
+            font-size: 15px;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* =========================
+           CASE LIST
+        ========================= */
+
+        .case-list {
+            background: #12151a;
+
+            border: 1px solid #292d33;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================
+           CASE ROW
+        ========================= */
+
+        .case-row {
+            display: grid;
+
+            grid-template-columns:
+                80px
+                1fr
+                120px
+                150px;
+
+            align-items: center;
+
+            gap: 20px;
+
+            min-height: 90px;
+
+            padding: 18px 25px;
+
+            border-bottom: 1px solid #292d33;
+
+            transition: 0.2s ease;
+        }
+
+        .case-row:last-child {
+            border-bottom: none;
+        }
+
+        .case-row:hover {
+            background: #181c21;
+        }
+
+
+        /* =========================
+           CASE NUMBER
+        ========================= */
+
+        .case-number {
+            color: #666;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           CASE INFORMATION
+        ========================= */
+
+        .case-info {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+        .case-title {
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: bold;
+        }
+
+        .case-description {
+            color: #777;
+
+            font-size: 12px;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+
+            max-width: 500px;
+        }
+
+
+        /* =========================
+           DIFFICULTY
+        ========================= */
+
+        .case-difficulty {
+            display: inline-block;
+
+            width: fit-content;
+
+            padding: 6px 12px;
+
+            border: 1px solid #e3ad4f;
+
+            border-radius: 20px;
+
+            color: #e3ad4f;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .case-button {
+            display: block;
+
+            text-align: center;
+
+            background: #e3ad4f;
+
+            color: #0b0d10;
+
+            text-decoration: none;
+
+            padding: 11px 15px;
+
+            border-radius: 7px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            transition: 0.2s ease;
+        }
+
+        .case-button:hover {
+            background: #f0c46b;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================
+           EMPTY STATE
+        ========================= */
+
+        .empty {
+            padding: 40px;
+
+            text-align: center;
+
+            color: #777;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            nav {
+                padding: 0 25px;
+            }
+
+            .container {
+                padding: 45px 20px;
+            }
+
+            .page-title {
+                font-size: 36px;
+            }
+
+            .case-row {
+                grid-template-columns: 50px 1fr;
+
+                gap: 12px;
+
+                padding: 20px;
+            }
+
+            .case-info {
+                min-width: 0;
+            }
+
+            .case-description {
+                max-width: 100%;
+            }
+
+            .case-difficulty {
+                grid-column: 2;
+            }
+
+            .case-button {
+                grid-column: 2;
+
+                width: 150px;
+            }
+        }
+
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
+        @media (max-width: 450px) {
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .player {
+                font-size: 12px;
+            }
+
+            .page-title {
+                font-size: 30px;
+            }
+
+            .case-title {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            CASE&lt;SOLVER&gt;
+        </div>
+
+        <div class="player">
+
+            {{ request.session.character }}
+
+            {{ request.session.player_name }}
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <div class="container">
+
+
+        <!-- PAGE HEADER -->
+
+        <div class="case-label">
+            CASE FILES
+        </div>
+
+        <h1 class="page-title">
+            Choose Your Mystery
+        </h1>
+
+        <p class="subtitle">
+            Select a case and begin your investigation.
+        </p>
+
+
+        <!-- =========================
+             CASE LIST
+        ========================= -->
+
+        <div class="case-list">
+
+
+            {% for case in cases %}
+
+
+                <div class="case-row">
+
+
+                    <!-- CASE NUMBER -->
+
+                    <div class="case-number">
+
+                        CASE {{ case.id|stringformat:"02d" }}
+
+                    </div>
+
+
+                    <!-- CASE INFORMATION -->
+
+                    <div class="case-info">
+
+                        <div class="case-title">
+
+                            {{ case.title }}
+
+                        </div>
+
+                        <div class="case-description">
+
+                            {{ case.description }}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DIFFICULTY -->
+
+                    <div>
+
+                        <span class="case-difficulty">
+
+                            {{ case.difficulty|upper }}
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- VIEW BUTTON -->
+
+                    <a
+                        href="{% url 'case_detail' case.id %}"
+                        class="case-button"
+                    >
+
+                        VIEW CASE →
+
+                    </a>
+
+
+                </div>
+
+
+            {% empty %}
+
+
+                <div class="empty">
+
+                    No cases are available yet.
+
+                </div>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

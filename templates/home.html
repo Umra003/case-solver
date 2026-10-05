@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Case Solver</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0d10;
+            color: white;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            padding: 0 70px;
+            border-bottom: 1px solid #25282d;
+        }
+
+        .logo {
+            color: #e3ad4f;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: calc(100vh - 75px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+
+        /* SMALL TITLE */
+
+        .tagline {
+            color: #e3ad4f;
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+
+        /* MAIN HEADING */
+
+        h1 {
+            font-size: 70px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #e3ad4f;
+        }
+
+
+        /* DESCRIPTION */
+
+        .description {
+            max-width: 650px;
+            margin: auto;
+            color: #9b9b9b;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+
+        /* PLAY BUTTON */
+
+        .play-button {
+            display: inline-block;
+            text-decoration: none;
+            background: #e3ad4f;
+            color: #0b0d10;
+            padding: 16px 38px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: 0.2s;
+        }
+
+        .play-button:hover {
+            background: #f0c46b;
+            transform: translateY(-2px);
+        }
+
+
+        /* FEATURES */
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+            margin-top: 70px;
+            padding-top: 30px;
+            border-top: 1px solid #25282d;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-title {
+            color: #e3ad4f;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .feature-text {
+            color: #777;
+            font-size: 12px;
+            margin-top: 7px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 0 25px;
+            }
+
+            h1 {
+                font-size: 45px;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+
+            .features {
+                gap: 25px;
+                flex-wrap: wrap;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            CASE&lt;SOLVER&gt;
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="tagline">
+                THINK. INVESTIGATE. SOLVE.
+            </div>
+
+
+            <h1>
+                Every mystery<br>
+                has a <span>truth.</span>
+            </h1>
+
+
+            <p class="description">
+                Step into the world of mysteries.
+                Examine clues, uncover hidden connections,
+                question everything and use your deduction
+                skills to discover what really happened.
+            </p>
+
+
+            <a href="{% url 'player' %}" class="play-button">
+                PLAY NOW →
+            </a>
+
+
+            <!-- FEATURES -->
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <div class="feature-title">
+                        MYSTERIES
+                    </div>
+
+                    <div class="feature-text">
+                        Uncover the unknown
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-title">
+                        CLUES
+                    </div>
+
+                    <div class="feature-text">
+                        Observe every detail
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-title">
+                        DEDUCTION
+                    </div>
+
+                    <div class="feature-text">
+                        Connect the evidence
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-title">
+                        NO EASY ANSWERS
+                    </div>
+
+                    <div class="feature-text">
+                        Think before you decide
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

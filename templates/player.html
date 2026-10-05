@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Your Detective</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #0b0d10;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #e3ad4f;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #aaa;
+            margin-bottom: 35px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            background: #15181d;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .characters {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .character {
+            background: #15181d;
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            font-size: 40px;
+        }
+
+        .character:hover {
+            border-color: #777;
+        }
+
+        .character.selected {
+            border-color: #e3ad4f;
+            box-shadow: 0 0 15px rgba(227, 173, 79, 0.4);
+        }
+
+        .character-name {
+            display: block;
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 8px;
+        }
+
+        button {
+            background: #e3ad4f;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #f0c46b;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>CREATE YOUR DETECTIVE</h1>
+
+    <p class="subtitle">
+        Every great mystery needs a great detective.
+    </p>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>Detective Name</label>
+
+        <input
+            type="text"
+            name="player_name"
+            placeholder="Enter your name..."
+            required
+        >
+
+        <label>Choose Your Character</label>
+
+        <div class="characters">
+
+            <div class="character" onclick="selectCharacter(this, '🕵️')">
+                🕵️
+                <span class="character-name">Detective</span>
+            </div>
+
+            <div class="character" onclick="selectCharacter(this, '🥷')">
+                🥷
+                <span class="character-name">Ninja</span>
+            </div>
+
+            <div class="character" onclick="selectCharacter(this, '🧑‍🔬')">
+                🧑‍🔬
+                <span class="character-name">Scientist</span>
+            </div>
+
+            <div class="character" onclick="selectCharacter(this, '🧙')">
+                🧙
+                <span class="character-name">Mystic</span>
+            </div>
+
+            <div class="character" onclick="selectCharacter(this, '🦸')">
+                🦸
+                <span class="character-name">Hero</span>
+            </div>
+
+            <div class="character" onclick="selectCharacter(this, '👩‍💻')">
+                👩‍💻
+                <span class="character-name">Hacker</span>
+            </div>
+
+        </div>
+
+        <input type="hidden" name="character" id="character">
+
+        <button type="submit">
+            START GAME →
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+
+    function selectCharacter(element, character) {
+
+        document.querySelectorAll('.character').forEach(function(card) {
+            card.classList.remove('selected');
+        });
+
+        element.classList.add('selected');
+
+        document.getElementById('character').value = character;
+    }
+
+</script>
+
+</body>
+</html>

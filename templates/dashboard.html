@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Case Solver - Dashboard</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #0b0d10;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            height: 70px;
+            border-bottom: 1px solid #25282d;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 60px;
+        }
+
+        .logo {
+            color: #e3ad4f;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ddd;
+        }
+
+        .profile-character {
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid #e3ad4f;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 23px;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+
+            padding: 65px 30px;
+
+            text-align: center;
+        }
+
+        .welcome {
+            color: #888;
+            font-size: 13px;
+            letter-spacing: 3px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin: 12px 0;
+        }
+
+        h1 span {
+            color: #e3ad4f;
+        }
+
+        .subtitle {
+            color: #999;
+            margin-bottom: 45px;
+        }
+
+        /* =========================
+           DETECTIVE CARD
+        ========================= */
+
+        .detective-card {
+            width: 300px;
+            margin: auto;
+
+            padding: 30px;
+
+            background: #12151a;
+            border: 1px solid #292d33;
+
+            border-radius: 15px;
+        }
+
+        .character {
+            width: 100px;
+            height: 100px;
+
+            margin: auto;
+
+            border: 2px solid #e3ad4f;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 55px;
+
+            box-shadow:
+                0 0 25px rgba(227, 173, 79, 0.18);
+        }
+
+        .detective-name {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .detective-title {
+            color: #888;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        /* =========================
+           ACTIONS
+        ========================= */
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+
+            margin: 45px 0;
+        }
+
+        .action-card {
+            width: 250px;
+            padding: 25px;
+
+            background: #12151a;
+            border: 1px solid #292d33;
+
+            border-radius: 12px;
+
+            text-decoration: none;
+            color: white;
+
+            transition: 0.2s;
+        }
+
+        .action-card:hover {
+            border-color: #e3ad4f;
+            transform: translateY(-3px);
+        }
+
+        .icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .action-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .action-description {
+            color: #888;
+            font-size: 13px;
+
+            margin-top: 8px;
+
+            line-height: 1.5;
+        }
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+
+            border-top: 1px solid #25282d;
+
+            padding-top: 30px;
+        }
+
+        .number {
+            color: #e3ad4f;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .label {
+            color: #777;
+            font-size: 12px;
+
+            margin-top: 5px;
+
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .container {
+                padding: 50px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats {
+                gap: 30px;
+            }
+
+            .detective-card {
+                max-width: 90%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            CASE&lt;SOLVER&gt;
+        </div>
+
+
+        <div class="profile">
+
+            <div class="profile-character">
+                {{ request.session.character }}
+            </div>
+
+            <span>
+                {{ request.session.player_name }}
+            </span>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <div class="container">
+
+
+        <div class="welcome">
+            WELCOME, DETECTIVE
+        </div>
+
+
+        <h1>
+            Ready to <span>solve?</span>
+        </h1>
+
+
+        <p class="subtitle">
+            Your next investigation is waiting.
+        </p>
+
+
+        <!-- =========================
+             DETECTIVE PROFILE
+        ========================= -->
+
+        <div class="detective-card">
+
+            <div class="character">
+                {{ request.session.character }}
+            </div>
+
+
+            <div class="detective-name">
+                {{ request.session.player_name }}
+            </div>
+
+
+            <div class="detective-title">
+                DETECTIVE
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             ACTION BUTTONS
+        ========================= -->
+
+        <div class="actions">
+
+
+            <!-- START INVESTIGATION -->
+
+            <a
+                href="{% url 'mystery' %}"
+                class="action-card"
+            >
+
+                <div class="icon">
+                    🔍
+                </div>
+
+                <div class="action-title">
+                    Start Investigation
+                </div>
+
+                <div class="action-description">
+                    Begin a new mystery and uncover the truth.
+                </div>
+
+            </a>
+
+
+            <!-- MY PROGRESS -->
+
+            <a
+                href="{% url 'progress' %}"
+                class="action-card"
+            >
+
+                <div class="icon">
+                    📊
+                </div>
+
+                <div class="action-title">
+                    My Progress
+                </div>
+
+                <div class="action-description">
+                    View your scores, solved cases and investigation history.
+                </div>
+
+            </a>
+
+
+        </div>
+
+
+        <!-- =========================
+             STATS
+        ========================= -->
+
+        <div class="stats">
+
+
+            <!-- CASES SOLVED -->
+
+            <div>
+
+                <div class="number">
+                    {{ solved_cases }}
+                </div>
+
+                <div class="label">
+                    CASES SOLVED
+                </div>
+
+            </div>
+
+
+            <!-- BEST SCORE -->
+
+            <div>
+
+                <div class="number">
+
+                    {% if best_score %}
+                        {{ best_score }}
+                    {% else %}
+                        —
+                    {% endif %}
+
+                </div>
+
+                <div class="label">
+                    BEST SCORE
+                </div>
+
+            </div>
+
+
+            <!-- INVESTIGATIONS -->
+
+            <div>
+
+                <div class="number">
+                    {{ attempts|length }}
+                </div>
+
+                <div class="label">
+                    INVESTIGATIONS
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

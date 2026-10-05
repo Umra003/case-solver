@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ case.title }} | Case Solver</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0d10;
+            color: white;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 60px;
+
+            border-bottom: 1px solid #25282d;
+        }
+
+        .logo {
+            color: #e3ad4f;
+
+            font-size: 24px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+        .player {
+            color: #aaa;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 70px 30px;
+        }
+
+
+        /* =========================
+           CASE HEADER
+        ========================= */
+
+        .case-label {
+            color: #e3ad4f;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: 48px;
+
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           META
+        ========================= */
+
+        .meta {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 35px;
+        }
+
+        .difficulty {
+            display: inline-block;
+
+            border: 1px solid #e3ad4f;
+
+            color: #e3ad4f;
+
+            padding: 7px 15px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+            font-weight: bold;
+        }
+
+        .questions-count {
+            color: #777;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           CASE FILE
+        ========================= */
+
+        .case-file {
+            background: #12151a;
+
+            border: 1px solid #292d33;
+
+            border-radius: 12px;
+
+            padding: 35px;
+
+            margin-bottom: 25px;
+        }
+
+        .file-heading {
+            color: #e3ad4f;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .case-description {
+            color: #c5c5c5;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+
+            white-space: pre-line;
+        }
+
+
+        /* =========================
+           WARNING
+        ========================= */
+
+        .warning {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: #777;
+
+            font-size: 13px;
+
+            margin-bottom: 30px;
+        }
+
+        .warning-icon {
+            color: #e3ad4f;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           BUTTON AREA
+        ========================= */
+
+        .actions {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+        .start-button {
+            display: inline-block;
+
+            background: #e3ad4f;
+
+            color: #0b0d10;
+
+            text-decoration: none;
+
+            padding: 15px 28px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            font-size: 13px;
+
+            transition: 0.2s ease;
+        }
+
+        .start-button:hover {
+            background: #f0c46b;
+
+            transform: translateY(-2px);
+        }
+
+        .back-button {
+            display: inline-block;
+
+            color: #888;
+
+            text-decoration: none;
+
+            padding: 15px 20px;
+
+            font-size: 13px;
+
+            transition: 0.2s ease;
+        }
+
+        .back-button:hover {
+            color: white;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 0 25px;
+            }
+
+            .container {
+                padding: 50px 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .case-file {
+                padding: 25px;
+            }
+
+            .case-description {
+                font-size: 15px;
+            }
+
+            .actions {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .start-button {
+                width: 100%;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            CASE&lt;SOLVER&gt;
+        </div>
+
+        <div class="player">
+
+            {{ request.session.character }}
+
+            {{ request.session.player_name }}
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <div class="container">
+
+
+        <!-- CASE LABEL -->
+
+        <div class="case-label">
+
+            CASE FILE #{{ case.id|stringformat:"02d" }}
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h1>
+
+            {{ case.title }}
+
+        </h1>
+
+
+        <!-- META INFORMATION -->
+
+        <div class="meta">
+
+            <div class="difficulty">
+
+                {{ case.difficulty|upper }}
+
+            </div>
+
+            <div class="questions-count">
+
+                Investigation File
+
+            </div>
+
+        </div>
+
+
+        <!-- CASE DESCRIPTION -->
+
+        <div class="case-file">
+
+            <div class="file-heading">
+
+                CASE BRIEF
+
+            </div>
+
+            <div class="case-description">
+
+                {{ case.description }}
+
+            </div>
+
+        </div>
+
+
+        <!-- WARNING -->
+
+        <div class="warning">
+
+            <span class="warning-icon">⚠</span>
+
+            <span>
+                Read the case carefully. Every detail may matter.
+            </span>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="actions">
+
+            <a
+                href="{% url 'question' case_id=case.id question_number=1 %}"
+                class="start-button"
+            >
+
+                BEGIN INVESTIGATION →
+
+            </a>
+
+            <a
+                href="{% url 'mystery' %}"
+                class="back-button"
+            >
+
+                ← BACK TO CASES
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

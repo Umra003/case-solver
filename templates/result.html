@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Investigation Complete | Case Solver</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #0b0d10;
+            color: white;
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 650px;
+            max-width: 92%;
+            text-align: center;
+        }
+
+        .result-card {
+            background: #12151a;
+            border: 1px solid #292d33;
+            border-radius: 18px;
+            padding: 55px 45px;
+
+            box-shadow:
+                0 0 40px rgba(227, 173, 79, 0.06);
+        }
+
+        .label {
+            color: #e3ad4f;
+            font-size: 13px;
+            letter-spacing: 4px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .emoji {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .case-name {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        /* SCORE */
+
+        .score {
+            font-size: 64px;
+            color: #e3ad4f;
+            font-weight: bold;
+            margin: 20px 0 8px;
+        }
+
+        .score-label {
+            color: #777;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        /* RANK */
+
+        .rank {
+            margin: 30px auto;
+            padding: 18px;
+            background: #181c22;
+            border: 1px solid #292d33;
+            border-radius: 10px;
+            max-width: 400px;
+        }
+
+        .rank-title {
+            color: #777;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .rank-name {
+            color: #e3ad4f;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .message {
+            color: #aaa;
+            line-height: 1.6;
+            margin: 25px auto 35px;
+            max-width: 480px;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: 0.2s;
+        }
+
+        .primary {
+            background: #e3ad4f;
+            color: #0b0d10;
+        }
+
+        .primary:hover {
+            background: #f0c46b;
+        }
+
+        .secondary {
+            border: 1px solid #393e46;
+            color: #ddd;
+        }
+
+        .secondary:hover {
+            border-color: #e3ad4f;
+            color: #e3ad4f;
+        }
+
+        @media (max-width: 600px) {
+
+            .result-card {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .score {
+                font-size: 52px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+    <div class="result-card">
+
+
+        <!-- HEADER -->
+
+        <div class="label">
+            INVESTIGATION COMPLETE
+        </div>
+
+
+        <div class="emoji">
+            🎉
+        </div>
+
+
+        <h1>
+            Case Solved!
+        </h1>
+
+
+        <div class="case-name">
+            {{ case.title }}
+        </div>
+
+
+        <!-- SCORE -->
+
+        <div class="score">
+            {{ score }} / 50
+        </div>
+
+
+        <div class="score-label">
+            INVESTIGATION SCORE
+        </div>
+
+
+        <!-- RANK -->
+
+        <div class="rank">
+
+            <div class="rank-title">
+                DETECTIVE RANK
+            </div>
+
+
+            {% if score >= 45 %}
+
+                <div class="rank-name">
+                    🏆 MASTER DETECTIVE
+                </div>
+
+            {% elif score >= 35 %}
+
+                <div class="rank-name">
+                    🔎 ELITE INVESTIGATOR
+                </div>
+
+            {% elif score >= 25 %}
+
+                <div class="rank-name">
+                    🕵️ SHARP DETECTIVE
+                </div>
+
+            {% elif score >= 15 %}
+
+                <div class="rank-name">
+                    🔍 JUNIOR INVESTIGATOR
+                </div>
+
+            {% else %}
+
+                <div class="rank-name">
+                    📁 ROOKIE DETECTIVE
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        {% if score >= 45 %}
+
+            <p class="message">
+                Outstanding work, Detective!
+                Your attention to detail was exceptional.
+                You uncovered the truth with almost no mistakes.
+            </p>
+
+        {% elif score >= 35 %}
+
+            <p class="message">
+                Excellent investigation!
+                You followed the evidence carefully and
+                successfully solved the case.
+            </p>
+
+        {% elif score >= 25 %}
+
+            <p class="message">
+                Good work, Detective.
+                You found most of the important clues,
+                but there is still room to sharpen your instincts.
+            </p>
+
+        {% elif score >= 15 %}
+
+            <p class="message">
+                Not bad, Detective.
+                Some clues escaped your attention.
+                Study the evidence more carefully next time.
+            </p>
+
+        {% else %}
+
+            <p class="message">
+                The case is solved, but the evidence tells another story.
+                Keep investigating and learn from your mistakes.
+            </p>
+
+        {% endif %}
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+
+            <a
+                href="{% url 'progress' %}"
+                class="button primary"
+            >
+                VIEW MY PROGRESS
+            </a>
+
+
+            <a
+                href="{% url 'mystery' %}"
+                class="button secondary"
+            >
+                SOLVE ANOTHER CASE
+            </a>
+
+
+            <a
+                href="{% url 'dashboard' %}"
+                class="button secondary"
+            >
+                DASHBOARD
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>
