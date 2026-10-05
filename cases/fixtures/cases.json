@@ -1,0 +1,439 @@
+[
+{
+  "model": "cases.case",
+  "pk": 1,
+  "fields": {
+    "title": "The Missing Laptop",
+    "description": "A laptop belonging to the college computer lab has disappeared. It was last seen on a desk at 2:20 PM.\r\n\r\nFour students were in or around the lab that afternoon: Umra, Bushra, Ariz, and Maseera.\r\n\r\nThe laptop was discovered missing at 3:00 PM.\r\n\r\nThe lab's security camera stopped recording between 2:20 PM and 2:30 PM because of a temporary power problem.\r\n\r\nUmra said that she left the lab at 2:10 PM and went directly to the cafeteria.\r\n\r\nBushra said that she stayed in the lab until 2:45 PM because she was working on her assignment.\r\n\r\nAriz said that he left the lab at 2:15 PM because he had a lecture at 2:30 PM.\r\n\r\nMaseera said that she was in the lab until 3:00 PM but never touched the laptop.\r\n\r\nEvidence 1: Umra's cafeteria receipt is timestamped 2:18 PM.\r\n\r\nEvidence 2: The attendance system shows Bushra attending a lecture in Room 204 at 2:30 PM.\r\n\r\nEvidence 3: Ariz's lecturer confirms that Ariz was present in the lecture from 2:25 PM onwards.\r\n\r\nEvidence 4: The security camera was not recording between 2:20 PM and 2:30 PM.\r\n\r\nYour task is to examine the statements and evidence and determine who is most likely responsible for the missing laptop.",
+    "difficulty": "Easy"
+  }
+},
+{
+  "model": "cases.case",
+  "pk": 2,
+  "fields": {
+    "title": "The Missing Examination Paper",
+    "description": "At 4:30 PM, a sealed envelope containing the next day's examination paper was placed inside the examination office. The office was locked at 5:00 PM.\r\n\r\nAt 5:20 PM, the principal discovered that the envelope was missing.\r\n\r\nThere was no sign of forced entry.\r\n\r\nFour people were known to be near the examination office that evening.\r\n\r\nRahul, the office assistant, said that he left the building at 4:50 PM. His attendance record shows that he scanned his ID at the main gate at 4:52 PM.\r\n\r\nNeha, a teacher, said that she went to the staff room at 4:45 PM and remained there until 5:30 PM. Another teacher confirmed seeing her in the staff room at 5:10 PM.\r\n\r\nAmit, the computer technician, said that he entered the examination office at 5:05 PM to repair a computer. He claimed that the office was already locked and that he left immediately.\r\n\r\nPriya, the clerk, said that she was preparing documents in the administration room and never went near the examination office.\r\n\r\nHowever, CCTV shows Priya walking toward the examination office at 5:02 PM and returning toward the administration room at 5:08 PM.\r\n\r\nThe electronic door record shows that the examination office was opened at 5:03 PM. The office computer also recorded a print at 5:04 PM.\r\n\r\nYour task is to examine the timeline, compare the statements with the evidence, eliminate suspects who could not have committed the crime, and determine who was most likely responsible for the missing examination paper.",
+    "difficulty": "Medium"
+  }
+},
+{
+  "model": "cases.case",
+  "pk": 3,
+  "fields": {
+    "title": "The Diamond That Wasn't Stolen",
+    "description": "At 8:45 PM, a priceless diamond disappears from a locked display case inside the city's most secure museum. There are no broken locks, no fingerprints on the glass, and the alarm never went off.\r\n\r\nFour people were present in the museum that evening, and each gives a convincing account of their movements.\r\n\r\nThe security system shows that the display case was opened during a short period when the alarm had been disabled for routine maintenance. However, one piece of evidence suggests that the diamond may have disappeared long before anyone realized it was missing.\r\n\r\nYour task is to reconstruct the timeline, examine the evidence carefully, identify the contradiction in the suspects' statements, and determine how the diamond disappeared�and who was responsible.",
+    "difficulty": "Hard"
+  }
+},
+{
+  "model": "cases.case",
+  "pk": 4,
+  "fields": {
+    "title": "The Vanishing Blueprint",
+    "description": "At 7:00 PM, a confidential architectural blueprint was placed inside a locked cabinet in the design department.\r\n\r\nAt 8:30 PM, the chief architect returned and discovered that the blueprint had disappeared.\r\n\r\nThere was no damage to the cabinet or signs of forced entry.\r\n\r\nFour employees were still inside the building that evening.\r\n\r\nArjun, the security guard, claimed he remained at the main entrance from 7:00 PM until 8:30 PM.\r\n\r\nMeera, an architect, said she left the building at 7:15 PM.\r\n\r\nRohan, the IT technician, claimed he was fixing a printer on the second floor between 7:20 PM and 8:00 PM.\r\n\r\nSara, the project assistant, said she spent the entire evening in the conference room preparing documents.\r\n\r\nHowever, the building's access system recorded that Sara's access card was used to enter the design department at 7:42 PM.\r\n\r\nSecurity footage shows Rohan passing the design department at 7:45 PM, despite claiming he was on the second floor.\r\n\r\nThe cabinet was opened at 7:43 PM.",
+    "difficulty": "Medium"
+  }
+},
+{
+  "model": "cases.case",
+  "pk": 5,
+  "fields": {
+    "title": "The 11:47 Photograph",
+    "description": "At exactly 11:47 PM, a photograph was uploaded to the private account of a famous journalist, Daniel Cross.\r\n\r\nThe photograph showed Daniel standing outside an abandoned railway station.\r\n\r\nThere was only one problem.\r\n\r\nDaniel had been reported dead three hours earlier.\r\n\r\nPolice had already identified his body at his apartment at 8:32 PM.\r\n\r\nHis phone was found beside him.\r\n\r\nThe account was protected by a password known only to Daniel.\r\n\r\nAt first, investigators believed the photograph had been scheduled in advance.\r\n\r\nBut the photograph contained something unexpected.\r\nIn the background was a digital railway clock displaying:\r\n\r\n11:46 PM\r\n\r\nInvestigators checked the station's records.\r\n\r\nThe station had been abandoned for six years.\r\n\r\nFour people had a possible connection to Daniel that night:\r\n\r\nMaya, his editor, claimed she spoke to Daniel on the phone at 7:45 PM and left the city at 8:00 PM.\r\n\r\nArjun, his photographer, claimed Daniel had asked him to meet at the railway station at 10:30 PM, but Arjun never went because he believed Daniel was already dead.\r\nKabir, Daniel's brother, claimed he was at home all evening.\r\n\r\nNisha, a technology consultant, said she had helped Daniel secure his online accounts two weeks earlier but had not spoken to him since.\r\n\r\nInvestigators discovered that the photograph had been uploaded at 11:47 PM.\r\n\r\nThe railway clock in the photograph showed 11:46 PM.\r\n\r\nBut there was another problem.\r\n\r\nThe railway station had no electricity.\r\n\r\nAnd the clock had not worked for six years.\r\n\r\nSomeone had deliberately created the photograph.\r\n\r\nYour task is to determine why the photograph was created, who could have created it, and what the photograph was actually meant to prove.",
+    "difficulty": "Hard"
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 1,
+  "fields": {
+    "case": 1,
+    "question_text": "Who was definitely not in the lab after 2:18 PM?",
+    "option_a": "Umra",
+    "option_b": "Bushra",
+    "option_c": "Ariz",
+    "option_d": "Maseera",
+    "correct_answer": "A",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 2,
+  "fields": {
+    "case": 1,
+    "question_text": "Which suspect's statement conflicts with the attendance evidence?",
+    "option_a": "Umra",
+    "option_b": "Bushra",
+    "option_c": "Ariz",
+    "option_d": "Maseera",
+    "correct_answer": "B",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 3,
+  "fields": {
+    "case": 1,
+    "question_text": "Why is the period between 2:20 PM and 2:30 PM important?",
+    "option_a": "The lab was closed",
+    "option_b": "The laptop was purchased",
+    "option_c": "The security camera was not recording",
+    "option_d": "All students left the college",
+    "correct_answer": "C",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 4,
+  "fields": {
+    "case": 1,
+    "question_text": "Which suspect has the least evidence confirming their whereabouts?",
+    "option_a": "Umra",
+    "option_b": "Maseera",
+    "option_c": "Ariz",
+    "option_d": "Bushra",
+    "correct_answer": "B",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 5,
+  "fields": {
+    "case": 1,
+    "question_text": "Based on all the evidence, who is the most likely person responsible for the missing laptop?",
+    "option_a": "Bushra",
+    "option_b": "Ariz",
+    "option_c": "Umra",
+    "option_d": "Maseera",
+    "correct_answer": "D",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 6,
+  "fields": {
+    "case": 2,
+    "question_text": "Based on all the evidence, who is the most likely person responsible for the missing examination paper?",
+    "option_a": "Rahul",
+    "option_b": "Neha",
+    "option_c": "Amit",
+    "option_d": "Priya",
+    "correct_answer": "D",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 7,
+  "fields": {
+    "case": 2,
+    "question_text": "Which suspect's statement is directly contradicted by the CCTV evidence?",
+    "option_a": "Neha",
+    "option_b": "Rahul",
+    "option_c": "Priya",
+    "option_d": "Amit",
+    "correct_answer": "C",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 8,
+  "fields": {
+    "case": 2,
+    "question_text": "Why is the period between 5:02 PM and 5:08 PM important?",
+    "option_a": "Rahul was leaving the building",
+    "option_b": "Neha was seen in the staff room",
+    "option_c": "Priya was seen approaching and leaving the examination office",
+    "option_d": "The principal arrived at the office",
+    "correct_answer": "C",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 9,
+  "fields": {
+    "case": 2,
+    "question_text": "Which suspect has the strongest independent evidence supporting their alibi?",
+    "option_a": "Neha",
+    "option_b": "Amit",
+    "option_c": "Rahul",
+    "option_d": "Priya",
+    "correct_answer": "A",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 10,
+  "fields": {
+    "case": 2,
+    "question_text": "What does the electronic door record suggest about the person who entered the examination office?",
+    "option_a": "The person forced the door open",
+    "option_b": "The person probably had legitimate access to the office",
+    "option_c": "The office was never opened",
+    "option_d": "The computer opened the door automatically",
+    "correct_answer": "B",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 11,
+  "fields": {
+    "case": 2,
+    "question_text": "Which combination of evidence most strongly points toward Priya?",
+    "option_a": "She was a teacher and was seen in the staff room",
+    "option_b": "Her ID was scanned at the main gate at 4:52 PM",
+    "option_c": "CCTV shows her approaching the office at 5:02 PM, the door opened at 5:03 PM, and she returned at 5:08 PM",
+    "option_d": "She was working in the administration room",
+    "correct_answer": "C",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 12,
+  "fields": {
+    "case": 3,
+    "question_text": "The security system shows that the display case was opened at 8:10 PM. What makes this time especially important?",
+    "option_a": "The museum closed at 8:00 PM",
+    "option_b": "The alarm was disabled from 8:05 PM to 8:20 PM",
+    "option_c": "The curator arrived at 8:10 PM",
+    "option_d": "The cleaner left at 8:10 PM",
+    "correct_answer": "B",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 13,
+  "fields": {
+    "case": 3,
+    "question_text": "The guard says he checked the diamond at 8:00 PM. The curator says she saw it at 8:30 PM. What does this information make possible?",
+    "option_a": "The diamond could only have been stolen between 8:00 and 8:30 PM",
+    "option_b": "The diamond may have been replaced with a fake before 8:30 PM",
+    "option_c": "The guard must have stolen it",
+    "option_d": "The curator must have stolen it",
+    "correct_answer": "B",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 14,
+  "fields": {
+    "case": 3,
+    "question_text": "There are no fingerprints on the glass. What can investigators reasonably conclude?",
+    "option_a": "The thief wore gloves or the fingerprints were removed",
+    "option_b": "Nobody touched the display case",
+    "option_c": "The diamond was never inside the case",
+    "option_d": "The curator stole the diamond",
+    "correct_answer": "A",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 15,
+  "fields": {
+    "case": 3,
+    "question_text": "The alarm was disabled from 8:05 PM to 8:20 PM, and the case was opened at 8:10 PM. What does this prove?",
+    "option_a": "The person who opened the case was definitely the thief",
+    "option_b": "The diamond was definitely removed at 8:10 PM",
+    "option_c": "The security guard disabled the alarm",
+    "option_d": "The case was opened during a period when the alarm could not detect the opening",
+    "correct_answer": "D",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 16,
+  "fields": {
+    "case": 3,
+    "question_text": "Investigators discover that the display case was opened at 8:10 PM, but the case's internal sensor shows that no object was removed from the mounting position at that time.",
+    "option_a": "The case opening may have been intended to mislead investigators",
+    "option_b": "The alarm must have been broken",
+    "option_c": "The diamond was stolen at exactly 8:10 PM",
+    "option_d": "Nobody opened the case",
+    "correct_answer": "A",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 17,
+  "fields": {
+    "case": 3,
+    "question_text": "The diamond is later found hidden inside a maintenance compartment. Investigators determine that it had been replaced with a replica earlier in the evening.",
+    "option_a": "The thief broke into the case at 8:10 PM and stole the diamond",
+    "option_b": "Someone removed the diamond earlier, replaced it with a replica, and used the 8:10 PM case opening to make investigators believe the theft happened then",
+    "option_c": "The security guard accidentally moved the diamond",
+    "option_d": "The diamond disappeared because of a malfunction in the display case",
+    "correct_answer": "B",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 18,
+  "fields": {
+    "case": 4,
+    "question_text": "What time was the blueprint originally placed inside the cabinet?",
+    "option_a": "6:30 PM",
+    "option_b": "7:00 PM",
+    "option_c": "7:15 PM",
+    "option_d": "7:42 PM",
+    "correct_answer": "B",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 19,
+  "fields": {
+    "case": 4,
+    "question_text": "When was the blueprint discovered missing?",
+    "option_a": "7:15 PM",
+    "option_b": "7:42 PM",
+    "option_c": "8:00 PM",
+    "option_d": "8:30 PM",
+    "correct_answer": "D",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 20,
+  "fields": {
+    "case": 4,
+    "question_text": "What evidence directly contradicts Sara's statement?",
+    "option_a": "She was seen leaving the building",
+    "option_b": "Her access card was used in the design department",
+    "option_c": "She was seen talking to Rohan",
+    "option_d": "Her documents were missing",
+    "correct_answer": "B",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 21,
+  "fields": {
+    "case": 4,
+    "question_text": "What contradicts Rohan's claim about where he was?",
+    "option_a": "His access card was missing",
+    "option_b": "He was seen leaving the building",
+    "option_c": "CCTV showed him passing the design department",
+    "option_d": "Arjun saw him in the conference room",
+    "correct_answer": "C",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 22,
+  "fields": {
+    "case": 4,
+    "question_text": "Why can Meera be considered less likely to have taken the blueprint?",
+    "option_a": "She was working in the conference room",
+    "option_b": "She claimed to have left at 7:15 PM, before the cabinet was opened",
+    "option_c": "She did not have an access card",
+    "option_d": "CCTV showed her with Arjun",
+    "correct_answer": "B",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 23,
+  "fields": {
+    "case": 4,
+    "question_text": "Based on the timeline and evidence, who is the MOST likely person responsible for the missing blueprint?",
+    "option_a": "Sara",
+    "option_b": "Arjun",
+    "option_c": "Meera",
+    "option_d": "Rohan",
+    "correct_answer": "A",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 24,
+  "fields": {
+    "case": 5,
+    "question_text": "What makes the photograph suspicious?",
+    "option_a": "It was uploaded from Daniel's account",
+    "option_b": "Daniel was supposedly already dead",
+    "option_c": "The photograph was taken at night",
+    "option_d": "The station was abandoned",
+    "correct_answer": "B",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 25,
+  "fields": {
+    "case": 5,
+    "question_text": "What does the broken railway clock suggest?",
+    "option_a": "The photograph must be old",
+    "option_b": "Daniel repaired the person creating it most likely want investigators the clock",
+    "option_c": "The station was secretly reopened",
+    "option_d": "The photograph could have been manipulated or staged",
+    "correct_answer": "D",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 26,
+  "fields": {
+    "case": 5,
+    "question_text": "Suppose the photograph was created after Daniel's death. What would the person creating it most likely want investigators to believe?",
+    "option_a": "Daniel had never visited the station",
+    "option_b": "Daniel had repaired the station clock",
+    "option_c": "Daniel was still alive at 11:46 PM",
+    "option_d": "Daniel had left the city",
+    "correct_answer": "C",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 27,
+  "fields": {
+    "case": 5,
+    "question_text": "If the photograph was deliberately staged to make Daniel appear alive after his death, which statement is the strongest conclusion?",
+    "option_a": "The photograph was probably intended to create a false timeline",
+    "option_b": "The photograph proves Daniel survived",
+    "option_c": "The photograph proves Nisha killed Daniel",
+    "option_d": "The photograph proves the railway station was operating",
+    "correct_answer": "A",
+    "points": 10
+  }
+},
+{
+  "model": "cases.question",
+  "pk": 28,
+  "fields": {
+    "case": 5,
+    "question_text": "What figure out that the crime was committed during a is the most reasonable conclusion based on the evidence?",
+    "option_a": "Daniel secretly survived and visited the station",
+    "option_b": "The photograph is genuine because it came from Daniel's account",
+    "option_c": "Someone deliberately created misleading evidence suggesting Daniel was alive after his reported death",
+    "option_d": "The railway station secretly reopened that night",
+    "correct_answer": "C",
+    "points": 10
+  }
+}
+]
